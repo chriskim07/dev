@@ -1,0 +1,62 @@
+중요중요중요중요중요중요중요중요중요중요중요중요중요중요중요중요중요
+
+
+
+//2차원 배열 정렬
+Arrays.sort(arr, Comparator.comparingInt(a -> a[1]));
+
+
+ScriptEngineManager mgr = new ScriptEngineManager();
+ScriptEngine engine = mgr.getEngineByName("javascript");
+result = (Double)engine.eval(input);
+
+
+//Map 출력방법
+// 방법1
+Iterator<String> keys = map.keySet().iterator();
+System.out.println("Iterator");
+while( keys.hasNext() ){
+    String key = keys.next();
+    System.out.println( String.format("키 : %s, 값 : %s", key, map.get(key)) );
+}
+         
+// 방법2
+System.out.println("entrySet");
+for( Map.Entry<String, String> elem : map.entrySet() ){
+    System.out.println( String.format("키 : %s, 값 : %s", elem.getKey(), elem.getValue()) );
+}
+         
+// 방법3
+System.out.println("keySet");
+for( String key : map.keySet() ){
+    System.out.println( String.format("키 : %s, 값 : %s", key, map.get(key)) );
+}
+
+
+
+String input = "GOLGOLGOL";
+Pattern pattern = Pattern.compile("GOL");
+Matcher m = pattern.matcher(input);
+int index=0;
+while(m.find(index)){
+    index = m.start()+1;
+    cnt++;
+}
+
+
+
+permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
+
+
+중복 데이터가 가장 많은 원본 데이터 찾기
+Map<String, Integer> map = new HashMap<String, Integer>(str.length);
+Integer cnt = map.get(str[i][j]);
+if(cnt == null) cnt = 0;
+map.put(str[i][j], cnt+1);
+
+for(Map.Entry<String, Integer> entry : map.entrySet()){
+if(entry.getValue() > 1){
+    //count = entry.getValue();
+    temp = entry.getKey();
+    }
+}
