@@ -1,0 +1,31 @@
+public static void main(String[] args) {
+
+// FIXME Auto-generated method stub
+
+String regExp = "(02|010)-＼＼d{3,4}-＼＼d{4}";
+
+String data = "010-123-4567";
+
+boolean result = Pattern.matches(regExp, data);
+
+if(result)
+
+System.out.println("일치 합니다.");
+
+else
+
+System.out.println("불일치 합니다.");
+
+regExp = "＼＼w+@＼＼w+＼＼.＼＼w+(＼＼.＼＼w+)?";
+
+data = "jsm9301@naver.com";
+
+result = Pattern.matches(regExp, data);
+
+if(result)
+
+System.out.println("일치 합니다.");
+
+else
+
+System.out.println("불일치 합니다.");
