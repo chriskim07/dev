@@ -1,0 +1,60 @@
+		// firstCodeNameList = [bcd.txt, bcdx.txt, axcd.txt, axyz.txt, cxyd.txt, bcxa.txt, bazy.txt]
+		secondCodeNameList = new ArrayList<String>();
+		for(String data:firstCodeNameList){
+			String ext = data.substring(data.lastIndexOf("."));
+			data = data.substring(0, data.lastIndexOf("."));
+			
+			boolean added = false;
+			
+			if ( data.indexOf("a") > -1 && data.indexOf("x") > -1 ) {
+				if ( data.indexOf("ax") > -1 ) {
+					secondCodeNameList.add(data+ext);
+					added = true;
+				}						
+			} 
+			
+			if ( !added ) {
+				if ( data.indexOf("a") > -1 || data.indexOf("x") > -1 ) {
+					if ( data.indexOf("ab") > -1 || data.indexOf("xy") > -1 ) {
+						secondCodeNameList.add(data+ext);
+					}
+				} else {
+					secondCodeNameList.add(data+ext);
+				}
+			}
+		}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    		// inputData = "ote12lkja23dhbgfl1ejkhf3uhe";
+    	// backup = "otek3lkjaopdhbgfl1ejkhf1uhe";
+		for(int i = 0 ; i < inputData.length(); i++){
+			char currentCh = inputData.charAt(i);
+			char backupCh = backup.charAt(i);
+			
+			if(Character.isDigit(currentCh)){
+				if(Character.isDigit(backupCh)){
+//					currentCh = backupCh;
+					firstRecovery += currentCh;
+				} else {
+					firstRecovery += backupCh;
+				}
+			} else {
+				firstRecovery += currentCh;
+			}
+		}
+    
+    
+    
+    
+    
+    
+    
