@@ -1,0 +1,47 @@
+	/**
+	 */
+	public int measureSortComparison(String inputData, int[][] similarityMatrix){
+		int maxSimilarity = 0;
+		//////////////////////
+		String[] genom = inputData.split(",");
+		int size = genom[0].length() + genom[1].length();
+
+		String tmpStr2 = getGenom(genom[1],size, size-genom[1].length());
+		String str1 =null;
+		String str2 = null;
+		for(int i=0; i< genom[1].length()+1; i++) {
+			int count =0;
+			str1 = getGenom(genom[0],size, i);
+			for(int j=0; j< size; j++) {
+				if(str1.charAt(j) == '-' && tmpStr2.charAt(j) == '-'){
+					continue;
+				} else {
+					int x= getNum(str1.charAt(j));
+					int y = getNum(tmpStr2.charAt(j));
+					count += similarityMatrix[x][y];
+				}
+			}
+			if(count > maxSimilarity)
+				maxSimilarity = count;
+		}
+		
+		String tmpStr1 = str1;
+		
+		for(int i=0; i< genom[0].length()+1; i++) {
+			int count =0;
+			str2 = getGenom(genom[1],size,genom[0].length()-i);
+			for(int j=0; j< size; j++) {
+				if(str2.charAt(j) == '-' && tmpStr1.charAt(j) == '-'){
+					continue;
+				} else {
+					int x= getNum(str2.charAt(j));
+					int y = getNum(tmpStr1.charAt(j));
+					count += similarityMatrix[x][y];
+				}
+			}
+			if(count > maxSimilarity)
+				maxSimilarity = count;
+		}
+		/////////////////////////////
+		return maxSimilarity;
+	}
